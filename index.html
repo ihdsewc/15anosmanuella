@@ -4,20 +4,57 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>15 Anos | Manuella</title>
+
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Great+Vibes&display=swap" rel="stylesheet">
+
   <style>
     body {
       margin: 0;
       font-family: 'Playfair Display', serif;
-      background: linear-gradient(180deg, #000 0%, #1a1a1a 100%);
+      background: #000;
       color: #f5d27a;
       text-align: center;
+      overflow-x: hidden;
     }
+
+    /* ---------- ÁREA RESTRITA ---------- */
+    #lock {
+      position: fixed;
+      inset: 0;
+      background: #000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 9999;
+    }
+    #lock div {
+      border: 1px solid #f5d27a;
+      padding: 40px;
+      border-radius: 20px;
+    }
+    #lock input {
+      padding: 12px;
+      border-radius: 10px;
+      border: none;
+      margin-top: 15px;
+      width: 220px;
+      text-align: center;
+    }
+    #lock button {
+      margin-top: 15px;
+      padding: 12px 30px;
+      border-radius: 30px;
+      border: none;
+      background: #f5d27a;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
     nav {
       position: fixed;
       top: 0;
       width: 100%;
-      background: rgba(0,0,0,0.9);
+      background: rgba(0,0,0,0.85);
       padding: 15px;
       z-index: 1000;
     }
@@ -27,67 +64,83 @@
       text-decoration: none;
       font-weight: bold;
     }
+
     header {
-      padding: 160px 20px 120px;
+      padding: 170px 20px 140px;
       background:
-        linear-gradient(rgba(0,0,0,0.65), rgba(0,0,0,0.9)),
+        linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.9)),
         url('hollywood.jpg') center/cover no-repeat;
       filter: grayscale(100%);
       animation: zoomHollywood 20s ease-in-out infinite alternate;
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* Luzes estilo premiere */
+    header::before, header::after {
+      content: '';
+      position: absolute;
+      width: 200%;
+      height: 200%;
+      background: linear-gradient(120deg, transparent, rgba(255,255,255,0.08), transparent);
+      animation: lights 12s linear infinite;
+    }
+    header::after {
+      animation-delay: 6s;
+    }
+
+    @keyframes lights {
+      from { transform: translateX(-50%) rotate(0deg); }
+      to { transform: translateX(50%) rotate(360deg); }
     }
 
     @keyframes zoomHollywood {
-      from {
-        background-size: 100%;
-      }
-      to {
-        background-size: 110%;
-      }
+      from { background-size: 100%; }
+      to { background-size: 112%; }
     }
+
     header h1 {
       font-family: 'Great Vibes', cursive;
-      font-size: 80px;
+      font-size: 90px;
       margin: 20px 0;
     }
-    header h2 {
-      letter-spacing: 4px;
+    header h2 { letter-spacing: 4px; }
+
+    .floating {
+      position: fixed;
+      font-size: 26px;
+      animation: float 14s linear infinite;
+      opacity: 0.25;
+      z-index: 1;
     }
-    .icons {
-      font-size: 40px;
-      margin-top: 20px;
+
+    @keyframes float {
+      from { transform: translateY(110vh); }
+      to { transform: translateY(-10vh); }
     }
+
     section {
-      padding: 70px 20px;
+      padding: 80px 20px;
       max-width: 1000px;
       margin: auto;
     }
+
     .card {
       background: rgba(255,255,255,0.05);
       border: 1px solid rgba(255,215,128,0.35);
-      border-radius: 25px;
+      border-radius: 30px;
       padding: 45px 30px;
-      margin-bottom: 50px;
-      box-shadow: 0 0 40px rgba(255,215,128,0.18);
+      margin-bottom: 60px;
+      box-shadow: 0 0 40px rgba(255,215,128,0.2);
     }
-    h3 {
-      margin-bottom: 25px;
-      letter-spacing: 3px;
-    }
-    p {
-      font-size: 18px;
-      margin: 12px 0;
-    }
-    .decor {
-      font-size: 32px;
-      margin: 15px 0;
-    }
+
     iframe {
       width: 100%;
       height: 650px;
       border: none;
       border-radius: 25px;
-      margin-top: 20px;
     }
+
     .buttons a {
       display: inline-block;
       margin: 12px;
@@ -97,21 +150,28 @@
       color: #000;
       font-weight: bold;
       text-decoration: none;
-      box-shadow: 0 0 20px rgba(245,210,122,0.6);
     }
-    footer {
-      padding: 40px;
-      font-size: 14px;
-      opacity: 0.7;
-    }
+
+    footer { padding: 40px; opacity: 0.7; }
   </style>
 </head>
 <body>
 
+<!-- ÁREA RESTRITA -->
+<div id="lock">
+  <div>
+    <h2>🎟️ Área exclusiva</h2>
+    <p>Digite a senha para acessar</p>
+    <input type="password" id="senha" placeholder="Senha">
+    <br>
+    <button onclick="unlock()">Entrar</button>
+  </div>
+</div>
+
 <nav>
   <a href="#inicio">Início</a>
   <a href="#evento">Evento</a>
-  <a href="#experiencia">Experiência</a>
+  <a href="#contador">Contagem</a>
   <a href="#confirmacao">Confirmar Presença</a>
 </nav>
 
@@ -119,52 +179,74 @@
   <h2>🎬 HOLLYWOOD NIGHT 🎬</h2>
   <h1>Manuella</h1>
   <h2>15 ANOS</h2>
-  <div class="icons">🏆 🎥 🎞️ 🍿</div>
 </header>
 
 <section id="evento">
   <div class="card">
     <h3>DETALHES DO EVENTO</h3>
-    <div class="decor">🏆</div>
-    <p><strong>Data:</strong> 28 de fevereiro de 2026</p>
-    <p><strong>Horário:</strong> das 20h às 00h</p>
-    <p><strong>Local:</strong><br>
-      Av. José Carlos Fernandes, 113<br>
-      Jardim Terras de São João<br>
-      Jacareí - SP • 12324-784
-    </p>
-    <p><strong>Traje:</strong> Glamour Hollywood (tapete vermelho ✨)</p>
+    <p><strong>Data:</strong> 28/02/2026</p>
+    <p><strong>Horário:</strong> 20h às 00h</p>
+    <p><strong>Local:</strong><br>Av. José Carlos Fernandes, 113<br>Jacareí - SP</p>
+    <p><strong>Traje:</strong> Glamour Hollywood ✨</p>
   </div>
 </section>
 
-<section id="experiencia">
+<section id="contador">
   <div class="card">
-    <h3>UMA NOITE DE CINEMA</h3>
-    <div class="decor">🎬 🍿 🎥</div>
-    <p>Prepare-se para uma noite inesquecível, digna de uma grande estreia.</p>
-    <p>Tapete vermelho, estatuetas do Oscar, luzes, música, diversão e muito glamour.</p>
-    <p>Você é nosso convidado especial para viver essa experiência cinematográfica.</p>
+    <h3>CONTAGEM REGRESSIVA</h3>
+    <h2 id="countdown"></h2>
   </div>
 </section>
 
 <section id="confirmacao">
   <div class="card">
     <h3>CONFIRMAR PRESENÇA</h3>
-    <div class="decor">🎟️</div>
-    <p>Confirme sua presença para garantir seu lugar nessa noite estrelada ⭐</p>
-
-    <iframe src="https://docs.google.com/forms/d/e/SEU_FORM_ID/viewform?embedded=true">Carregando…</iframe>
-
-    <p><strong>Ou confirme diretamente pelo WhatsApp:</strong></p>
+    <iframe src="https://docs.google.com/forms/d/e/<iframe src="https://docs.google.com/forms/d/e/1FAIpQLSeT1T6H0aIzu0vSa9eFt9htNzd7R5tRO1s65dnqoOp43wJerA/viewform?embedded=true" width="640" height="963" frameborder="0" marginheight="0" marginwidth="0">Carregando…</iframe>/viewform?embedded=true"></iframe>
     <div class="buttons">
-      <a href="https://wa.me/55SEUNUMERO?text=Confirmo%20minha%20presen%C3%A7a%20nos%2015%20anos%20da%20Manuella%20%F0%9F%8E%AC%E2%9C%A8" target="_blank">Confirmar no WhatsApp</a>
+      <a href="https://wa.me/55129789822?text=Confirmo%20minha%20presen%C3%A7a%20nos%2015%20anos%20da%20Manuella" target="_blank">Confirmar no WhatsApp</a>
     </div>
   </div>
 </section>
 
-<footer>
-  🏆 15 Anos Manuella • Hollywood Night • 2026 🏆
-</footer>
+<footer>🏆 15 Anos Manuella • Hollywood Night • 2026</footer>
+
+<!-- MÚSICA -->
+<audio id="music" loop>
+  <source src="musica.mp3" type="audio/mpeg">
+</audio>
+
+<script>
+  /* senha */
+  function unlock() {
+    if (document.getElementById('senha').value === 'manu15') {
+      document.getElementById('lock').style.display = 'none';
+      document.getElementById('music').play();
+    } else alert('Senha incorreta');
+  }
+
+  /* contagem regressiva */
+  const eventDate = new Date('2026-02-28T20:00:00');
+  setInterval(() => {
+    const now = new Date();
+    const diff = eventDate - now;
+    const d = Math.floor(diff / (1000*60*60*24));
+    const h = Math.floor((diff / (1000*60*60)) % 24);
+    const m = Math.floor((diff / (1000*60)) % 60);
+    document.getElementById('countdown').innerText = `${d} dias ${h}h ${m}min`;
+  }, 1000);
+
+  /* ícones flutuantes */
+  const icons = ['🏆','🎬','🍿','🎥','🎞️'];
+  for(let i=0;i<20;i++){
+    const s=document.createElement('span');
+    s.className='floating';
+    s.style.left=Math.random()*100+'vw';
+    s.style.animationDuration=10+Math.random()*15+'s';
+    s.innerText=icons[Math.floor(Math.random()*icons.length)];
+    document.body.appendChild(s);
+  }
+</script>
 
 </body>
 </html>
+
