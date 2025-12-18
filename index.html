@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>15 Anos | Manuella</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Great+Vibes&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Playfair Display', serif;
+      background: radial-gradient(circle at top, #1a1a1a, #000);
+      color: #f5d27a;
+      text-align: center;
+    }
+    nav {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      background: rgba(0,0,0,0.9);
+      padding: 15px;
+      z-index: 1000;
+    }
+    nav a {
+      color: #f5d27a;
+      margin: 0 15px;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    header {
+      padding: 120px 20px 80px;
+    }
+    header h1 {
+      font-family: 'Great Vibes', cursive;
+      font-size: 70px;
+      margin: 20px 0;
+    }
+    section {
+      padding: 60px 20px;
+      max-width: 900px;
+      margin: auto;
+    }
+    .card {
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,215,128,0.3);
+      border-radius: 20px;
+      padding: 40px 25px;
+      margin-bottom: 40px;
+      box-shadow: 0 0 30px rgba(255,215,128,0.15);
+    }
+    h3 {
+      margin-bottom: 20px;
+      letter-spacing: 3px;
+    }
+    p {
+      font-size: 18px;
+      margin: 12px 0;
+    }
+    .buttons a {
+      display: inline-block;
+      margin: 10px;
+      padding: 15px 25px;
+      border-radius: 30px;
+      background: #f5d27a;
+      color: #000;
+      font-weight: bold;
+      text-decoration: none;
+    }
+    iframe {
+      width: 100%;
+      height: 650px;
+      border: none;
+      border-radius: 20px;
+    }
+    footer {
+      padding: 30px;
+      font-size: 14px;
+      opacity: 0.7;
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <a href="#inicio">Início</a>
+  <a href="#evento">Evento</a>
+  <a href="#confirmacao">Confirmar Presença</a>
+  <a href="#links">Link & QR Code</a>
+</nav>
+
+<header id="inicio">
+  <h2>HOLLYWOOD NIGHT</h2>
+  <h1>Manuella</h1>
+  <h2>15 ANOS</h2>
+</header>
+
+<section id="evento">
+  <div class="card">
+    <h3>DETALHES DO EVENTO</h3>
+    <p><strong>Data:</strong> 28 de fevereiro de 2026</p>
+    <p><strong>Horário:</strong> das 20h às 00h</p>
+    <p><strong>Local:</strong><br>
+      Av. José Carlos Fernandes, 113<br>
+      Jardim Terras de São João<br>
+      Jacareí - SP • 12324-784
+    </p>
+    <p><strong>Traje:</strong> Glamour Hollywood 🎬✨</p>
+    <p><strong>Observação:</strong> Evento exclusivo para convidados</p>
+  </div>
+</section>
+
+<section id="confirmacao">
+  <div class="card">
+    <h3>CONFIRMAR PRESENÇA</h3>
+    <p>Preencha o formulário abaixo para confirmar sua presença</p>
+
+    <!-- Google Form Embed -->
+    <iframe src="https://docs.google.com/forms/d/e/SEU_FORM_ID/viewform?embedded=true">Carregando…</iframe>
+
+    <p><strong>Ou confirme pelo WhatsApp:</strong></p>
+    <div class="buttons">
+      <a href="https://wa.me/55SEUNUMERO?text=Confirmo%20minha%20presen%C3%A7a%20nos%2015%20anos%20da%20Manuella" target="_blank">Confirmar no WhatsApp</a>
+    </div>
+  </div>
+</section>
+
+<section id="links">
+  <div class="card">
+    <h3>LINK & QR CODE</h3>
+    <p>Compartilhe este site com seus convidados:</p>
+    <p><strong>https://seusite.github.io/15anosmanuella</strong></p>
+    <p>Use este link para gerar um QR Code gratuito:</p>
+    <p><strong>https://www.the-qrcode-generator.com</strong></p>
+    <p>Basta colar o link do site e baixar o QR Code</p>
+  </div>
+</section>
+
+<footer>
+  © 2026 • 15 Anos Manuella • Hollywood Theme
+</footer>
+
+</body>
+</html>
