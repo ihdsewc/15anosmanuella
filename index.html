@@ -9,7 +9,7 @@
     body {
       margin: 0;
       font-family: 'Playfair Display', serif;
-      background: radial-gradient(circle at top, #1a1a1a, #000);
+      background: linear-gradient(180deg, #000 0%, #1a1a1a 100%);
       color: #f5d27a;
       text-align: center;
     }
@@ -28,52 +28,79 @@
       font-weight: bold;
     }
     header {
-      padding: 120px 20px 80px;
+      padding: 160px 20px 120px;
+      background:
+        linear-gradient(rgba(0,0,0,0.65), rgba(0,0,0,0.9)),
+        url('hollywood.jpg') center/cover no-repeat;
+      filter: grayscale(100%);
+      animation: zoomHollywood 20s ease-in-out infinite alternate;
+    }
+
+    @keyframes zoomHollywood {
+      from {
+        background-size: 100%;
+      }
+      to {
+        background-size: 110%;
+      }
     }
     header h1 {
       font-family: 'Great Vibes', cursive;
-      font-size: 70px;
+      font-size: 80px;
       margin: 20px 0;
     }
+    header h2 {
+      letter-spacing: 4px;
+    }
+    .icons {
+      font-size: 40px;
+      margin-top: 20px;
+    }
     section {
-      padding: 60px 20px;
-      max-width: 900px;
+      padding: 70px 20px;
+      max-width: 1000px;
       margin: auto;
     }
     .card {
       background: rgba(255,255,255,0.05);
-      border: 1px solid rgba(255,215,128,0.3);
-      border-radius: 20px;
-      padding: 40px 25px;
-      margin-bottom: 40px;
-      box-shadow: 0 0 30px rgba(255,215,128,0.15);
+      border: 1px solid rgba(255,215,128,0.35);
+      border-radius: 25px;
+      padding: 45px 30px;
+      margin-bottom: 50px;
+      box-shadow: 0 0 40px rgba(255,215,128,0.18);
     }
     h3 {
-      margin-bottom: 20px;
+      margin-bottom: 25px;
       letter-spacing: 3px;
     }
     p {
       font-size: 18px;
       margin: 12px 0;
     }
-    .buttons a {
-      display: inline-block;
-      margin: 10px;
-      padding: 15px 25px;
-      border-radius: 30px;
-      background: #f5d27a;
-      color: #000;
-      font-weight: bold;
-      text-decoration: none;
+    .decor {
+      font-size: 32px;
+      margin: 15px 0;
     }
     iframe {
       width: 100%;
       height: 650px;
       border: none;
-      border-radius: 20px;
+      border-radius: 25px;
+      margin-top: 20px;
+    }
+    .buttons a {
+      display: inline-block;
+      margin: 12px;
+      padding: 16px 30px;
+      border-radius: 40px;
+      background: linear-gradient(135deg, #f5d27a, #d4af37);
+      color: #000;
+      font-weight: bold;
+      text-decoration: none;
+      box-shadow: 0 0 20px rgba(245,210,122,0.6);
     }
     footer {
-      padding: 30px;
+      padding: 40px;
       font-size: 14px;
       opacity: 0.7;
     }
@@ -84,19 +111,21 @@
 <nav>
   <a href="#inicio">Início</a>
   <a href="#evento">Evento</a>
+  <a href="#experiencia">Experiência</a>
   <a href="#confirmacao">Confirmar Presença</a>
-  <a href="#links">Link & QR Code</a>
 </nav>
 
 <header id="inicio">
-  <h2>HOLLYWOOD NIGHT</h2>
+  <h2>🎬 HOLLYWOOD NIGHT 🎬</h2>
   <h1>Manuella</h1>
   <h2>15 ANOS</h2>
+  <div class="icons">🏆 🎥 🎞️ 🍿</div>
 </header>
 
 <section id="evento">
   <div class="card">
     <h3>DETALHES DO EVENTO</h3>
+    <div class="decor">🏆</div>
     <p><strong>Data:</strong> 28 de fevereiro de 2026</p>
     <p><strong>Horário:</strong> das 20h às 00h</p>
     <p><strong>Local:</strong><br>
@@ -104,39 +133,37 @@
       Jardim Terras de São João<br>
       Jacareí - SP • 12324-784
     </p>
-    <p><strong>Traje:</strong> Glamour Hollywood 🎬✨</p>
-    <p><strong>Observação:</strong> Evento exclusivo para convidados</p>
+    <p><strong>Traje:</strong> Glamour Hollywood (tapete vermelho ✨)</p>
+  </div>
+</section>
+
+<section id="experiencia">
+  <div class="card">
+    <h3>UMA NOITE DE CINEMA</h3>
+    <div class="decor">🎬 🍿 🎥</div>
+    <p>Prepare-se para uma noite inesquecível, digna de uma grande estreia.</p>
+    <p>Tapete vermelho, estatuetas do Oscar, luzes, música, diversão e muito glamour.</p>
+    <p>Você é nosso convidado especial para viver essa experiência cinematográfica.</p>
   </div>
 </section>
 
 <section id="confirmacao">
   <div class="card">
     <h3>CONFIRMAR PRESENÇA</h3>
-    <p>Preencha o formulário abaixo para confirmar sua presença</p>
+    <div class="decor">🎟️</div>
+    <p>Confirme sua presença para garantir seu lugar nessa noite estrelada ⭐</p>
 
-    <!-- Google Form Embed -->
-    <iframe src="https://docs.google.com/forms/d/e/<iframe src="https://docs.google.com/forms/d/e/1FAIpQLSeT1T6H0aIzu0vSa9eFt9htNzd7R5tRO1s65dnqoOp43wJerA/viewform?embedded=true" width="640" height="963" frameborder="0" marginheight="0" marginwidth="0">Carregando…</iframe>/viewform?embedded=true">Carregando…</iframe>
+    <iframe src="https://docs.google.com/forms/d/e/SEU_FORM_ID/viewform?embedded=true">Carregando…</iframe>
 
-    <p><strong>Ou confirme pelo WhatsApp:</strong></p>
+    <p><strong>Ou confirme diretamente pelo WhatsApp:</strong></p>
     <div class="buttons">
-      <a href="https://wa.me/5512978981221?text=Confirmo%20minha%20presen%C3%A7a%20nos%2015%20anos%20da%20Manuella" target="_blank">Confirmar no WhatsApp</a>
+      <a href="https://wa.me/55SEUNUMERO?text=Confirmo%20minha%20presen%C3%A7a%20nos%2015%20anos%20da%20Manuella%20%F0%9F%8E%AC%E2%9C%A8" target="_blank">Confirmar no WhatsApp</a>
     </div>
   </div>
 </section>
 
-<section id="links">
-  <div class="card">
-    <h3>LINK & QR CODE</h3>
-    <p>Compartilhe este site com seus convidados:</p>
-    <p><strong>https://seusite.github.io/15anosmanuella</strong></p>
-    <p>Use este link para gerar um QR Code gratuito:</p>
-    <p><strong>https://www.the-qrcode-generator.com</strong></p>
-    <p>Basta colar o link do site e baixar o QR Code</p>
-  </div>
-</section>
-
 <footer>
-  © 2026 • 15 Anos Manuella • Hollywood Theme
+  🏆 15 Anos Manuella • Hollywood Night • 2026 🏆
 </footer>
 
 </body>
